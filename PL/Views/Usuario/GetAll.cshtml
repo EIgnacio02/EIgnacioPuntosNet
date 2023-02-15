@@ -1,0 +1,41 @@
+﻿@model ML.Usuario
+@{
+    ViewBag.Title = "GetAll";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>GetAll</h2>
+<div class="row">
+    <div style="float:right">
+        @Html.ActionLink("Agregar", "Form", "Usuario", htmlAttributes: new { @class = "btn btn-success" })
+    </div>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Editar</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido Paterno</th>
+            <th scope="col">Apellido Materno</th>
+            <th scope="col">Fecha de nacimiento</th>
+            <th scope="col">Email</th>
+            <th scope="col">Password</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (ML.Usuario usuario in Model.UsuarioList)
+        {
+            <tr>
+                <td><a class="btn btn-warning glyphicon glyphicon-edit" href="@Url.Action("Form", "Usuario", new { IdUsuario = usuario.IdUsuario})"></a></td>
+                <td>@usuario.Nombre</td>
+                <td>@usuario.ApellidoPaterno</td>
+                <td>@usuario.ApellidoMaterno</td>
+                <td>@usuario.FechaNacimiento</td>
+                <td>@usuario.Email</td>
+                <td>@usuario.Password</td>
+            </tr>
+        }
+
+
+    </tbody>
+</table>

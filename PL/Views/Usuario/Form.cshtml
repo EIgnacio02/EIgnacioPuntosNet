@@ -1,0 +1,230 @@
+﻿@model ML.Usuario
+@{
+    ViewBag.Title = "Form";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <h2>Formulario Usuario</h2>
+    <div class="row">
+
+        <div class="col-md-12">
+
+            @using (Html.BeginForm("Form", "Usuario", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                if (Model.IdUsuario > 0)
+                {
+                    <div class="form-horizontal">
+
+                        <div class="form-group">
+
+                            <div class="col-md-3">
+
+                                @Html.LabelFor(model => model.IdUsuario, new { @class = "hidden" })
+
+                                @Html.TextBoxFor(model => model.IdUsuario, new { @class = "hidden form-control", @readonly = "readonly" })
+
+
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <div class="col-md-3">
+
+                                @Html.LabelFor(model => model.Nombre)
+
+                                @Html.TextBoxFor(model => model.Nombre, new { @class = "form-control", @readonly = "readonly" })
+
+
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+
+                            <div class="col-md-3">
+
+                                @Html.LabelFor(model => model.ApellidoPaterno)
+
+                                @Html.TextBoxFor(model => model.ApellidoPaterno, new { @class = "form-control", @disabled = "disabled" })
+
+
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+
+                            <div class="col-md-3">
+
+                                @Html.LabelFor(model => model.ApellidoMaterno)
+
+                                @Html.TextBoxFor(model => model.ApellidoMaterno, new { @class = "form-control", @readonly = "readonly" })
+
+
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+
+                            <div class="col-md-3">
+
+                                @Html.LabelFor(model => model.FechaNacimiento)
+
+                                @Html.TextBoxFor(model => model.FechaNacimiento, new { @class = "form-control", @readonly = "readonly" })
+
+
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <div class="col-md-3">
+
+                                @Html.LabelFor(model => model.Email)
+
+                                @Html.TextBoxFor(model => model.Email, new { @class = "form-control", @readonly = "readonly" })
+
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <div class="col-md-3">
+
+                                @Html.LabelFor(model => model.Password)
+
+                                @Html.TextBoxFor(model => model.Password, new { @class = "form-control", @readonly = "readonly" })
+
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-group">
+
+                            <div class="col-md-3">
+
+                                @Html.ActionLink("Regresar", "GetAll", "Usuario", htmlAttributes: new { @class = "btn btn-danger" })
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                }
+                else
+                {
+                    <div class="form-horizontal">
+
+                        <div class="form-group">
+
+                            <div class="col-md-3">
+
+                                @Html.LabelFor(model => model.IdUsuario, new { @class = "hidden" })
+
+                                @Html.TextBoxFor(model => model.IdUsuario, new { @class = "hidden form-control" })
+
+
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <div class="col-md-3">
+
+                                @Html.LabelFor(model => model.Nombre)
+
+                                @Html.TextBoxFor(model => model.Nombre, new { @class = "form-control" })
+
+
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+
+                            <div class="col-md-3">
+
+                                @Html.LabelFor(model => model.ApellidoPaterno)
+
+                                @Html.TextBoxFor(model => model.ApellidoPaterno, new { @class = "form-control" })
+
+
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+
+                            <div class="col-md-3">
+
+                                @Html.LabelFor(model => model.ApellidoMaterno)
+
+                                @Html.TextBoxFor(model => model.ApellidoMaterno, new { @class = "form-control" })
+
+
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+
+                            <div class="col-md-3">
+
+                                @Html.LabelFor(model => model.FechaNacimiento)
+
+                                @Html.TextBoxFor(model => model.FechaNacimiento, new { @class = "form-control" })
+
+
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <div class="col-md-3">
+
+                                @Html.LabelFor(model => model.Email)
+
+                                @Html.TextBoxFor(model => model.Email, new { @class = "form-control"})
+
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <div class="col-md-3">
+
+                                @Html.LabelFor(model => model.Password)
+
+                                @Html.TextBoxFor(model => model.Password, new { @class = "form-control" })
+
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-group">
+
+                            <div class="col-md-3">
+
+                                <input type="submit" value="Guardar" class="btn btn-success" />
+
+                                @Html.ActionLink("Regresar", "GetAll", "Usuario", htmlAttributes: new { @class = "btn btn-danger" })
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                }
+
+            }
+
+        </div>
+
+    </div>
+</div>
